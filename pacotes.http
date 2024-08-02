@@ -1,0 +1,68 @@
+### Endpoints para Pacote
+
+# Consultar todos os pacotes
+GET http://localhost:8080/api/pacotes
+
+# Adicionar um novo pacote
+POST http://localhost:8080/api/pacotes
+Content-Type: application/json
+
+{
+  "id": "12345",
+  "destinatario": "Jose Silva",
+  "endereco": {
+    "rua": "Rua das Flores",
+    "numero": "123",
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "cep": "01234-567"
+  },
+  "status": "pendente"
+}
+
+# Consultar um pacote específico
+GET http://localhost:8080/api/pacotes/12345
+
+# Atualizar as informações de um pacote
+PUT http://localhost:8080/api/pacotes/12345
+Content-Type: application/json
+
+{
+  "destinatario": "Maria Souza",
+  "endereco": {
+    "rua": "Avenida Paulista",
+    "numero": "1000",
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "cep": "01310-100"
+  },
+  "status": "em trânsito"
+}
+
+# Remover um pacote
+DELETE http://localhost:8080/api/pacotes/12345
+
+
+### Endpoints para Rastreamento
+
+
+# Consultar todos os rastreamentos de um pacote específico
+GET http://localhost:8080/api/rastreamentos/12345
+
+
+### Endpoints para Endereco
+
+# Consultar todos os endereços
+GET http://localhost:8080/api/enderecos
+
+# Adicionar um novo endereço
+POST http://localhost:8080/api/enderecos
+Content-Type: application/json
+
+{
+  "rua": "Rua dos Andradas",
+  "numero": "456",
+  "cidade": "Porto Alegre",
+  "estado": "RS",
+  "cep": "90020-001"
+}
