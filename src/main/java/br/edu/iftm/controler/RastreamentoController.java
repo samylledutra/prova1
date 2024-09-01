@@ -1,7 +1,6 @@
 package br.edu.iftm.controler;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,10 +13,12 @@ import java.util.List;
 @RequestMapping("/api/rastreamentos")
 public class RastreamentoController {
 
-    @Autowired
-    private RastreamentoService rastreamentoService;
+    private final RastreamentoService rastreamentoService;
 
-    
+    public RastreamentoController(RastreamentoService rastreamentoService) {
+        this.rastreamentoService = rastreamentoService;
+    }
+
     @PostMapping
     public ResponseEntity<Rastreamento> adicionarRastreamento(@RequestBody Rastreamento rastreamento) {
         Rastreamento novoRastreamento = rastreamentoService.adicionarRastreamento(rastreamento);
