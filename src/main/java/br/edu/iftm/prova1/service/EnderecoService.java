@@ -2,7 +2,6 @@ package br.edu.iftm.prova1.service;
 
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.iftm.prova1.model.Endereco;
@@ -13,9 +12,11 @@ import java.util.List;
 @Service
 public class EnderecoService {
 
-    @Autowired
-    private EnderecoRepository enderecoRepository;
+    private final EnderecoRepository enderecoRepository;
 
+    public EnderecoService(EnderecoRepository enderecoRepository) {
+        this.enderecoRepository = enderecoRepository;
+    }
     
     public Endereco adicionarEndereco(Endereco endereco) {
         return enderecoRepository.save(endereco);
