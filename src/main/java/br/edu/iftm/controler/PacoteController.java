@@ -1,7 +1,6 @@
 package br.edu.iftm.controler;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,9 +14,11 @@ import java.util.List;
 @RequestMapping("/api/pacotes")
 public class PacoteController {
 
-    @Autowired
-    private PacoteService pacoteService;
+    private final PacoteService pacoteService;
 
+    public PacoteController(PacoteService pacoteService) {
+        this.pacoteService = pacoteService;
+    }
     
     @PostMapping
     public ResponseEntity<Pacote> cadastrarPacote(@RequestBody Pacote pacote) {
