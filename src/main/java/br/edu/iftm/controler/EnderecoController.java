@@ -1,7 +1,6 @@
 package br.edu.iftm.controler;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,10 +13,12 @@ import java.util.List;
 @RequestMapping("/api/enderecos")
 public class EnderecoController {
 
-    @Autowired
-    private EnderecoService enderecoService;
+    private final EnderecoService enderecoService;
 
-    
+     public EnderecoController(EnderecoService enderecoService) {
+        this.enderecoService = enderecoService;
+    }
+
     @PostMapping
     public ResponseEntity<Endereco> adicionarEndereco(@RequestBody Endereco endereco) {
         Endereco novoEndereco = enderecoService.adicionarEndereco(endereco);
